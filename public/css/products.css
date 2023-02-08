@@ -6,6 +6,11 @@
 }
 body{
     background-color: #ffc3a02c;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 header{
     width: 100%;
@@ -47,14 +52,14 @@ header{
 
 .add-product-form{
     
-    height: 200px;
-    width: 800px;
+    height: 540px;
+    width: 600px;
     margin: auto;
-    margin-top: 20px;   
+      border-radius: 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: all 0.5s linear;
@@ -62,7 +67,7 @@ header{
 }
 .form-header{
     width: 100%;
-    height: 40%;
+    height: 15%;
     font-size: 25px;
     color: #1400c6;
     font-weight: bolder;
@@ -71,19 +76,38 @@ header{
     align-items: center;
    
 }
-.user-input{
+.form-body{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.user-input , .user-img , .user-price , .user-disc{
     border: 1px solid #ff0028;
     height: 30px;
     font-size: 15px;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
     padding: 4px;
+    width: 70%;
+    border-radius: 5px 5px;
 }
-.user-input:focus{
+input:focus{
     border: 1px solid #beef00;
     height: 30px;
     outline: none;
     background-color: #ffc3a0;
+}
+.user-disc:focus{
+    border: 1px solid #beef00;
+    background-color: #ffc3a0;
+}
+.user-disc{
+    height: 150px;
+    padding: 7px;
 }
 .add-product-btn{
     width: 20%;
@@ -96,6 +120,7 @@ header{
     margin: 10px 0px;
     letter-spacing: 0.08rem;
     transition: all 0.3s ease-in-out;
+    border-radius: 5px 5px;
     
 }
 .add-product-btn:hover{

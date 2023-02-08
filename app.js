@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const adminRouter = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRouter = require('./routes/shop');
-
+const errorController = require('./controllers/error')
 
 
 
@@ -11,12 +11,15 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(express.static(path.join(__dirname , '/public')))
 
-app.use('/admin' , adminRouter)
-app.use(shopRouter)
 
-app.use((req,res)=>{
-    res.status(404).sendFile(path.join(__dirname , '/views/404.html') )
-})
+app.set("views", "views");
+app.set("view engine", "pug");
+
+app.use(shopRouter)
+app.use('/admin' , adminData.routes)
+
+
+app.use(errorController.get404Page)
 
 app.listen(3000,()=>{
 

@@ -1,18 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-const viewsDirPath = path.join(__dirname , '../views')
+const adminController = require('../controllers/admin')
 
-router.get('/add-product' , (req , res , next)=>{
+router.get('/products' , adminController.getProducts )
+router.get('/add-product' , adminController.getAddProduct );
+router.post('/add-product' , adminController.postAddProduct);
+router.get('/delete/:id' , adminController.deleteProduct);
 
-    
-    res.sendFile(path.join(viewsDirPath , 'add-product.html'))
-})
-router.post('/add-product' , (req , res , next)=>{
-
-    console.log(req.body)
-    res.redirect(`/`)
-});
+router.get('/edit/:id' , adminController.editProduct);
+router.post('/edit' , adminController.postEditProduct);
 
 
-module.exports = router;
+
+exports.routes = router;

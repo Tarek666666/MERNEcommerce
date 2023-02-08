@@ -1,0 +1,32 @@
+extends ../layouts/main-layout.pug
+block content 
+        .item-header
+            h1 All Products
+        .items_container
+
+         if prods.length > 0 
+             each product in prods
+                  .single-item-container 
+                        h3.item-title #{product.title}
+                        img.item-img(src = product.img)
+                        p.item-price #{product.price} $
+                       
+                        input.hidden(name="productId"  type="button" value= product.id )
+                        form.add-to-cart-from(action=('/cart/'+product.id)  , method='post')
+                             button.add-item-btn Add to cart
+                             button.show-details-btn-container 
+                                  a.show-deatils-btn(href= '/product/'+product.id) show details
+                        
+
+
+                         
+
+                        
+
+                        
+         else
+              h3.header-no-items You have not added any product yet !!                    
+  
+          
+
+

@@ -1,0 +1,57 @@
+extends ../layouts/main-layout.pug
+
+block content 
+        if cartItems.length > 0 
+                .cart-container  
+                        .cart-header 
+                                p Shopping Cart
+                                   
+                        each item in cartItems    
+                        
+                                .cart-item    
+                                        img.cart-item-img(src = item.img)
+                                        h1.cart-item-title #{item.title}
+                                        h3.cart-item-price #{item.price} $
+                                        h3.cart-item-qty x#{ item.qty}
+                                        form.delete-cart-item-form(method='post' action=('/cart/delete/'+item.id))
+                                           .delete-cart-item-container 
+                                                button.delete-cart-item delete
+                                               
+                                        
+
+
+                        .checkout-container 
+                                .total-container
+                                        hr.black-hr
+                                        p.total-header total to pay 
+                                        hr
+                                        p.total-price #{total} $
+                                .checkout-btn-container
+                                         btn.checkout-btn checkout
+        else   
+                .cart-container  
+                        .cart-header 
+                                p Shopping Cart
+                                   
+                        each item in cartItems    
+                        
+                                .cart-item    
+                                        img.cart-item-img(src = item.img)
+                                        h1.cart-item-title #{item.title}
+                                        h3.cart-item-price #{item.price} 
+                                        h3.cart-item-qty x#{ item.qty}
+                                        form.delete-cart-item-form(method='post' action=('/cart/delete/'+item.id))
+                                           .delete-cart-item-container 
+                                                button.delete-cart-item delete
+                                               
+                                        
+
+
+                        .checkout-container 
+                                .total-container
+                                       
+                                        p.total-header Your Cart is empty 
+                                        hr
+                                        p.total-price 0 $
+                                .checkout-btn-container
+                                         
