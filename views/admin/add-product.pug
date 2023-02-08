@@ -1,0 +1,20 @@
+extends ../layouts/main-layout.pug
+block styles
+    link(rel="stylesheet" href="/css/products.css") 
+block content
+
+        block content
+        form.add-product-form(action="/admin/add-product" method="POST")
+            .form-header
+                p Add a Product!
+            .form-body
+                input.user-input(name="title"  type="text" placeholder="product name")
+                input.user-img(name="img"  type="URL" placeholder="image link")
+                input.user-price(name="price"  type="number" placeholder="price" step='00.01')
+                textarea.user-disc(name="discription"  type="text-area" placeholder="describe your product")
+                button.add-product-btn(type="submit")  Add Product</button>                    
+
+      
+        
+
+                     

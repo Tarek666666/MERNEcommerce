@@ -1,0 +1,16 @@
+extends ../layouts/main-layout.pug
+block styles
+    link(rel="stylesheet" href="/css/products.css") 
+block content
+
+        block content
+        form.add-product-form(action="/admin/edit" method="POST")
+            .form-header
+                p Edit your product
+            .form-body
+                input.user-input(name="title"  type="text" value= product.title)
+                input.user-img(name="img"  type="URL" placeholder="image link" value= product.img)
+                input.user-price(name="price"  type="number" placeholder="price" step='00.01' value= product.price)
+                input.hidden(name="id"  type="text"  value= id)
+                textarea.user-disc(name="discription"  type="text-area" placeholder= product.disc)
+                button.add-product-btn(type="submit")  Edit Product</button>        

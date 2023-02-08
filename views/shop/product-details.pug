@@ -1,0 +1,17 @@
+extends ../layouts/main-layout.pug
+block content 
+        .item-header
+            h1 #{product.title}
+        .items_container
+
+         
+             
+                  .single-item-container-details 
+                        h3.item-title #{product.title}
+                        img.item-img(src = product.img)
+                        p.item-price #{product.price} $
+                        p.item-disc #{product.disc} 
+                        form.add-to-cart-from(action='/cart' , method='post')
+                            button.add-item-btn-details(type='submit') Add to cart
+                            button.back-btn 
+                                a.back-btn(href= '/') Back

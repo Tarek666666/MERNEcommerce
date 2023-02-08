@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-const viewsDirPath = path.join(__dirname , './../views');
-const shopHtmlPath = path.join(viewsDirPath , '/shop.html')
+const shopController = require('../controllers/shop')
 
 
+router.get('/' , shopController.getShop);
+router.get('/cart' , shopController.getCart);
+router.post('/cart/:id' , shopController.postCart);
+router.get('/products' , shopController.getProducts);
+router.get('/product/:id' , shopController.getProductDetails);
+router.post('/cart/delete/:id' , shopController.deleteCartItem);
 
-router.get('/' , (req , res , next)=>{
-    res.sendFile(shopHtmlPath)
-})
 
 
 

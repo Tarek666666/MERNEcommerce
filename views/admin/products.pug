@@ -1,0 +1,23 @@
+extends ../layouts/main-layout.pug
+block content 
+        .item-header
+            h1 Admin's Control
+        .items_container
+
+         if prods.length > 0 
+             each product in prods
+                  .single-item-container 
+                        h3.item-title #{product.title}
+                        img.item-img(src = product.img)
+                        p.item-price #{product.price} $
+                        p.item-disc #{product.disc}
+                        input.hidden(name="productId"  type="button" value= product.id)
+                        .buttons-container
+                               
+                                        button.edit-item-btn 
+                                                a.edit-product-btn(href='/admin/edit/'+product.id) Edit item
+                                
+                                        button.delete-item-btn
+                                                a.delete-btn(href='/admin/delete/'+product.id) Delete Item
+         else
+              h3.header-no-items You have not added any product yet !!    

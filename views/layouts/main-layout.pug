@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+ html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge") 
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin) 
+        link(href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet") 
+        link(rel="stylesheet" href="/css/main.css") 
+        
+        
+        block styles
+        title #{title}
+    body
+        header
+            nav.nav-header
+                
+                    .shop-link-container
+                        a.shop-link(href="/" class=(path === '/' ? 'active' : '')) Shop
+                   
+                    .shop-link-container
+                        a.shop-link(href="/cart" class=(path === '/cart' ? 'active' : '')) Cart
+                    .shop-link-container
+                        a.shop-link(href="/products" class=(path === '/products-shop' ? 'active' : '')) Products
+                   
+                    .shop-link-container
+                        a.add-link(href="/admin/add-product" class=(path === '/admin/add-product' ? 'active' : '')) add product
+                    .shop-link-container
+                        a.shop-link(href="/admin/products" class=(path === '/admin/products' ? 'active' : '')) Admin Products
+
+
+        block content                
