@@ -27,7 +27,7 @@ exports.deleteProduct=  ('/delete/:id' , async(req , res , next)=>{
     const products = Product.fetchAll();
     const selectedProduct = products.find(product => product.id === req.params.id);
     const selectedProductIndex = products.indexOf(selectedProduct);
-    products.splice(selectedProductIndex , 1) // when deleting the elemnt index 2 in 3 elemnts in admin page , the resault is not true
+    products.splice(selectedProductIndex , 1) 
     res.render('admin/products' , {prods:products , path: '/admin/products'  ,  title: 'Admin Products'})
     
 })

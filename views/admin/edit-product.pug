@@ -12,5 +12,5 @@ block content
                 input.user-img(name="img"  type="URL" placeholder="image link" value= product.img)
                 input.user-price(name="price"  type="number" placeholder="price" step='00.01' value= product.price)
                 input.hidden(name="id"  type="text"  value= id)
-                textarea.user-disc(name="discription"  type="text-area" placeholder= product.disc)
+                textarea.user-disc(name="discription"  type="text-area"  ) #{product.disc}
                 button.add-product-btn(type="submit")  Edit Product</button>        

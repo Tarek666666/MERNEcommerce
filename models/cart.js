@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const p = path.join(path.dirname(process.mainModule.filename), "data/cart.json");
-const util = require("util");
 
 module.exports = class Cart {
     static addProductToCart(selectedProduct) {
@@ -21,6 +20,7 @@ module.exports = class Cart {
                 updatedProduct = { ...existingProduct };
                 updatedProduct.qty += 1;
                 cart.products[existingProductIndex] = updatedProduct;
+                
             } else {
                 updatedProduct = {
                     id: selectedProduct.id,
@@ -32,7 +32,9 @@ module.exports = class Cart {
                 };
                 cart.products = [...cart.products, updatedProduct];
             }
-            cart.totalPrice = parseInt(cart.totalPrice) + parseInt(selectedProduct.price);
+            let productPriceNum = Number(selectedProduct.price);
+            cart.totalPrice =  cart.totalPrice + productPriceNum ;
+            
             fs.writeFile(p, JSON.stringify(cart), (err) => {
                 console.log(err);
             });
@@ -46,7 +48,13 @@ module.exports = class Cart {
         const deletedItemIndex = parsedCart.products.findIndex((item) => item.id === id);
         const deletedItem = parsedCart.products[deletedItemIndex];
         parsedCart.products = filterdCart;
-        parsedCart.totalPrice -= deletedItem.price * deletedItem.qty;
+        const deletedPrice = Number(deletedItem.price * deletedItem.qty);
+        
+     //   const deletedPrice = parseInt(parsedCart.totalPrice) * deletedItem.qty - parseInt(deletedItem.price)
+        
+        parsedCart.totalPrice -= deletedPrice ;
+        
+        console.log('a')
         fs.writeFileSync(p, JSON.stringify(parsedCart));
     }
 

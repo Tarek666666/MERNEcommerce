@@ -13,7 +13,6 @@ exports.getProductDetails =
     (req, res, next) => {
         const products = Product.fetchAll();
         const selectedProduct = products.find((product) => product.id === req.params.id);
-        console.log(selectedProduct);
         res.render("shop/product-details", { product: selectedProduct, path: "/", title: "Home" });
     });
 
@@ -23,7 +22,7 @@ exports.getCart =
         const cartItems = Cart.fetchCart();
         res.render("shop/cart", {
             cartItems: cartItems.products,
-            total: cartItems.totalPrice,
+            total: parseFloat(cartItems.totalPrice).toFixed(2),
             path: "/cart",
             title: "Cart",
         });
