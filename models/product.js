@@ -1,91 +1,38 @@
-const fs = require('fs');
-const path = require('path');
-const p = path.join(path.dirname(process.mainModule.filename) , 'data/data.json')
-let products = [];
+const fs = require("fs");
+const path = require("path");
+const p = path.join(path.dirname(process.mainModule.filename), "data/data.json");
+const db = require("../util/databse");
 
-module.exports = class Product{
 
-    constructor(title,img,price,disc){
-        this.title = title,
-        this.img = img , 
-        this.price = price,
-        this.disc = disc;
-        this.id = Math.random().toString();
-        products.push(this)
-       
+module.exports = class Product {
+    constructor( title, img, price, disc) {
+        (this.title = title), (this.img = img), (this.price = price), (this.disc = disc);
+  
     }
-    save(){
-       
-        fs.readFile(p , (err , content)=>{
-         
-            if(!err){
-                products = JSON.parse(content);
-                products.push(this)
-            }
-            fs.writeFile(p, JSON.stringify(products), (err) => {
-                if (err)
-                  console.log(err);
-                else {
-                  console.log("File written successfully\n");
-                }
-              });
 
+    static fetchAll() {
+       
+        return db.execute("SELECT * FROM products")
+        .then((data) => {
+            return data[0]
         })
+        .catch((err) => console.log(err));
+    }
+    save() {
+
+        return db.execute("INSERT INTO products(title, discription, price, img) VALUES (?,?,?,?)" , [
+            this.title , this.disc , this.price , this.img
+        ])
     }
 
-static fetchAll(){
-  
-  fs.readFile(p , (err , content)=>{
-    if(content){
-      products = JSON.parse(content);
-    }
-   })
-
-   return products
-}
-
-static deleteProduct(id){
-  
-  fs.readFile(p , (err , content)=>{
-    let filterdProducts = [];
-    if(content){
-      products = JSON.parse(content);
-      filterdProducts = products.filter(product => product.id !== id);
-      fs.writeFile(p, JSON.stringify(filterdProducts) ,(err)=>{
-
-         
-      })
+    static deleteProduct(id) {
      
+        return db.execute(`DELETE FROM products WHERE id=?;` , [id] );
     }
-   })
+    static editProduct(id , title , disc , price , img) {
+        
+        return db.execute(`UPDATE products set title = '${title}', discription = '${disc}', price = '${price}', img = '${img}' WHERE id = '${id}'`);
 
-   return products
-}
-static editProduct(){
-
-
-  fs.readFile(p , (err , content)=>{
-    let filterdProducts = [];
-    if(content){
-      products = JSON.parse(content);
-      filterdProducts.push(products)
-      fs.writeFile(p, JSON.stringify(filterdProducts) ,(err)=>{
-         
-      })
-     
     }
-   })
-  
 
-}
-
-static saveEditedProduct(products){
-
-  fs.writeFile(p, JSON.stringify(products) ,(err)=>{
-         
-  })
-
-}
-
-}
-
+};

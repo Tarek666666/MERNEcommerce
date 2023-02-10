@@ -4,16 +4,25 @@ const Cart = require("../models/cart");
 exports.getShop =
     ("/",
     (req, res, next) => {
-        const products = Product.fetchAll();
-        res.render("shop/shop", { prods: products, path: "/", title: "Home" });
+    const products = Product.fetchAll();
+    products.then(data => {
+        res.render("shop/shop", { prods: data, path: "/", title: "Home" });
+       }).catch(err => console.log(err))
+
     });
+
+
 
 exports.getProductDetails =
     ("/product/:id",
     (req, res, next) => {
         const products = Product.fetchAll();
-        const selectedProduct = products.find((product) => product.id === req.params.id);
+        products.then(data => {
+        const selectedProduct = data.find((product) => product.id === parseInt(req.params.id));
+        console.log(selectedProduct)
         res.render("shop/product-details", { product: selectedProduct, path: "/", title: "Home" });
+       }).catch(err => console.log(err))
+       
     });
 
 exports.getCart =
@@ -49,9 +58,7 @@ exports.getProducts =
     ("/products",
     (req, res, next) => {
         const products = Product.fetchAll();
-        res.render("shop/products-shop", {
-            prods: products,
-            path: "/products-shop",
-            title: "Products",
-        });
+        products.then(data => {
+        res.render("shop/products-shop", { prods: data, path: "/products-shop", title: "Products" });
+       }).catch(err => console.log(err))
     });
