@@ -1,5 +1,5 @@
 require('dotenv').config()
-console.log(process.env.HOST)
+
 
 
 const Sequelize  = require('sequelize');

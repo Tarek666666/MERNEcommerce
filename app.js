@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -9,6 +10,8 @@ const Product = require("./models/product");
 const User = require("./models/user");
 const Cart = require("./models/cart");
 const CartItem = require("./models/cart-item");
+
+let port = 3000 || process.env.PORT
 
 app.use(express.urlencoded({extended:false}));
 //setting the static file for our css and js files
@@ -72,7 +75,7 @@ sequelizeDb
     
 })
 .then(cart =>{
-    app.listen(3000,()=>{console.log('servere is running on port : 3000'   )})
+    app.listen(port,()=>{console.log('servere is running on port : 3000'   )})
 })
 .catch(err => console.log(err));
 
