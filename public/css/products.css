@@ -76,6 +76,33 @@ header{
     align-items: center;
    
 }
+
+.form-error-empty , .form-error-title , .form-added-success {
+
+    width: 100%;
+    height: 15%;
+    font-size: 25px;
+    color: red;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+}
+.form-added-success{
+    color: #a1c416;
+}
+
+.show-error{
+    display: flex;
+}
+.hide-error{
+    display: none;
+}
+
+
+
+
 .form-body{
     width: 100%;
     height: 85%;
@@ -126,3 +153,109 @@ input:focus{
 .add-product-btn:hover{
     background-color: #FFA068;
 }
+
+
+@media  screen and (min-width: 320px) and (max-width: 480px) {
+    header{
+        height: 200px;
+        background-color: #beef00;
+    }
+    .not-found{
+        width: 50%;
+        
+    }
+    .nav-header{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+        
+    }
+    .nav-header div{
+        width: 180px;
+        height:  50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 23px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+    }
+    
+    .add-product-form{
+
+        width: 90%;
+    }
+    .form-error-empty , .form-error-title , .form-added-success {
+
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        
+    }
+
+    .form-body input {
+
+        width: 90%;
+        gap: -10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+    .form-body  {
+
+        
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .add-product-btn{
+
+        width: 50%;
+    }
+    
+   
+  
+  }
+
+  @media  screen and (min-width: 481px) and (max-width: 768px) {
+    .nav-header{
+        width: 100%;
+          
+      }
+    .add-product-form{
+        width: 90%;
+    }
+
+    .add-product-form input{
+        width: 90%;
+    }
+    .add-product-btn{
+        width: 50%;
+    }
+  }
+
+  @media  screen and (min-width: 769px) and (max-width: 1179px) {
+    .nav-header{
+        width: 100%;
+          
+      }
+    .add-product-form{
+        width: 70%;
+    }
+
+    .add-product-form input{
+        width: 90%;
+    }
+    .add-product-btn{
+        width: 40%;
+    }
+  }
+
+  
