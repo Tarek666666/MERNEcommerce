@@ -9,7 +9,9 @@
         link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin) 
         link(href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet") 
         link(rel="stylesheet" href="/css/main.css") 
-        
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+       
+
         
         block styles
         title #{title}
@@ -20,15 +22,14 @@
                     .shop-link-container
                         a.shop-link(href="/" class=(path === '/' ? 'active' : '')) Shop
                    
-                    .shop-link-container
-                        a.shop-link(href="/cart" class=(path === '/cart' ? 'active' : '')) Cart
-                    .shop-link-container
-                        a.shop-link(href="/products" class=(path === '/products-shop' ? 'active' : '')) Products
                    
                     .shop-link-container
                         a.add-link(href="/admin/add-product" class=(path === '/admin/add-product' ? 'active' : '')) add product
                     .shop-link-container
-                        a.shop-link(href="/admin/products" class=(path === '/admin/products' ? 'active' : '')) Admin Products
-
+                        a.shop-link(href="/admin/products" class=(path === '/admin/products' ? 'active' : '')) Admin 
+                    .shop-link-container
+                        a.shop-link(href="/cart" class=(path === '/cart' ? 'active' : '')) 
+                            i(class='fas fa-cart-plus' style='font-size:38px')
 
         block content                
+        

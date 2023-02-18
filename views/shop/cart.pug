@@ -12,10 +12,10 @@ block content
                                         img.cart-item-img(src = item.img)
                                         h1.cart-item-title #{item.title}
                                         h3.cart-item-price #{item.price} $
-                                        h3.cart-item-qty x#{ item.qty}
+                                        h3.cart-item-qty x #{ item['cart-item'].qty}
                                         form.delete-cart-item-form(method='post' action=('/cart/delete/'+item.id))
                                            
-                                                button.delete-cart-item delete
+                                                button.delete-cart-item x
                                                
                                         
 
