@@ -13,6 +13,7 @@ exports.postAddProduct = (req, res, next) => {
     const price = req.body.price;
     const disc = req.body.discription;
     //create the new product and add it to products table
+    console.log('the user obj from add prod' , req)
     req.user
         .createProduct({ title: title, price: price, discription: disc, img: img })
         .then((data) => {
