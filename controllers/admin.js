@@ -1,4 +1,5 @@
 const Product = require("../models/product");
+const User = require("../models/user");
 
 exports.getAddProduct = (req, res, next) => {
     res.render("admin/add-product", { path: "/admin/add-product", title: "Admin Add Product" });
@@ -21,7 +22,9 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-    req.user
+    console.log(req.user)
+    if(req.user){
+        req.user
         .getProducts()
         // Product.findAll()
         .then((data) => {
@@ -32,6 +35,25 @@ exports.getProducts = (req, res, next) => {
             });
         })
         .catch((err) => console.log(err));
+    }else{
+        const user = new User()
+        User.create({name:'Tarek' , email:'2b3zab666@gmail.com'}).then(user =>{
+
+            user.getProducts()
+            // Product.findAll()
+            .then((data) => {
+                res.render("admin/products", {
+                    prods: data,
+                    path: "/admin/products",
+                    title: "Admin Products",
+                });
+            })
+            .catch((err) => console.log(err));
+
+        })
+       
+
+    }
 };
 
 exports.deleteProduct =
