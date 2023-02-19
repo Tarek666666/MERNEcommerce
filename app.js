@@ -22,7 +22,7 @@ app.set("view engine", "pug");
 // middleware to search for id 1  user in database, when it finds it, it will assign it's value to the request object
 app.use( (req,res,next)=>{
 
-    User.findOne({where: {id:1}})
+    User.findOne({where: {name:'Tarek'}})
     .then(user =>{
         req.user = user;
         next();
@@ -51,25 +51,30 @@ Product.belongsToMany(Cart , {through : CartItem});
 
 // connect to shop database; the dialect to my sql
 sequelizeDb
-.sync()
+.sync({force:true})
 .then(res => {
 // after connecting to the database shop, seach for user with id 1 and return it
-    return User.findAll({where: {id:1}})
+    return User.findAll({where: {name:'Tarek'}})
 })
 .then(user => {
+
+    console.log('user => db connect app' , user)
 // if user with id 1 is not found => create user with provided data
     if(user.length <= 0){
         return  User.create({name:'Tarek' , email:'2b3zab666@gmail.com'})
     }
 // if user with id 1 is found => returd user    
+
     return user[0];
 })
 .then(user =>{
 // creating a cart for the user after being created or found    
+
     user.getCart().then(cart => {
         if(!cart){
             return user.createCart({total:0});
         }
+        
         return cart;
     }).catch(err =>console.log(err))
     

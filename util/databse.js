@@ -1,6 +1,20 @@
 require('dotenv').config()
 
-console.log(process.env.CLEARDB_DATABASE_URL)
+
+/*
+const Sequelize  = require('sequelize');
+const sequelize = new Sequelize( 'shop' , 'root' , 'root', {
+    
+    dialect: 'mysql',
+    host: 'localhost'
+
+});
+
+
+module.exports = sequelize; 
+
+*/
+
 
 
 const Sequelize  = require('sequelize');
@@ -12,4 +26,4 @@ const sequelize = new Sequelize( 'heroku_60f70c9307f1279' , 'b9a35914efcef8' , '
 });
 
 
-module.exports = sequelize;
+module.exports = sequelize; 
