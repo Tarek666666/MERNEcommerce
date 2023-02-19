@@ -11,7 +11,7 @@ const User = require("./models/user");
 const Cart = require("./models/cart");
 const CartItem = require("./models/cart-item");
 
-let port = 3000 || process.env.PORT
+let port =  process.env.PORT || 5000
 
 app.use(express.urlencoded({extended:false}));
 //setting the static file for our css and js files
