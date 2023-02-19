@@ -49,6 +49,17 @@ header{
  text-align: center;
 }
 
+.logo-container {
+
+    
+    width: 80px;
+    height: 55px;
+}
+
+.logo{
+    width: 100%;
+    height: 100%;
+}
 
 .cartCounter{
 
