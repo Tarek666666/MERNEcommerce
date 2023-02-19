@@ -51,14 +51,13 @@ Product.belongsToMany(Cart , {through : CartItem});
 
 // connect to shop database; the dialect to my sql
 sequelizeDb
-.sync({force:true})
+.sync()
 .then(res => {
 // after connecting to the database shop, seach for user with id 1 and return it
     return User.findAll({where: {name:'Tarek'}})
 })
 .then(user => {
 
-    console.log('user => db connect app' , user)
 // if user with id 1 is not found => create user with provided data
     if(user.length <= 0){
         return  User.create({name:'Tarek' , email:'2b3zab666@gmail.com'})
