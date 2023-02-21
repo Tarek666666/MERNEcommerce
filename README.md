@@ -1,5 +1,8 @@
 
 # Summary:
+
+This web application was purposefully developed using vanilla JavaScript and the Pug template engine as a challenge. By using these technologies, the app was built from scratch without the use of external libraries or frameworks.
+
 The application enables the user to log in as an admin, allowing them to add, update, and delete new products. Additionally, the admin can perform the same 
 actions as a regular user by adding items to their own cart. The cart automatically performs all necessary calculations and 
 prepares the total price for checkout.
