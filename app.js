@@ -79,7 +79,7 @@ sequelizeDb
     
 })
 .then(cart =>{
-    app.listen(port,()=>{console.log('servere is running on port : 3000'   )})
+    app.listen(port,()=>{console.log('servere is running on port : 5000'   )})
 })
 .catch(err => console.log(err));
 
