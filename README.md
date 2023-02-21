@@ -10,6 +10,7 @@ prepares the total price for checkout.
 
 # Deployed link:
 
+The app can be tested on the following link
 https://myecommercenodejs.herokuapp.com/
 
 
