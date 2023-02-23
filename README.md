@@ -13,7 +13,7 @@ The app utilizes a free MySQL Database (ClearDB) hosted on Heroku to store all p
 # Deployed link:
 
 The app can be tested on the following link
-https://myecommercenodejs.herokuapp.com/
+https://nodejs-ecommerce.herokuapp.com/
 
 
 # Application:
