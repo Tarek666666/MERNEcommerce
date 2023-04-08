@@ -1,5 +1,5 @@
 
-# Summary:
+# Summary:a
 
 This web application was purposefully developed using vanilla JavaScript and the Pug template engine as a challenge. By using these technologies, the app was built from scratch without the use of external libraries or frameworks.
 
